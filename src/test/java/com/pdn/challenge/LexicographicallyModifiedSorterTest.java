@@ -10,6 +10,23 @@ import static org.assertj.core.api.Assertions.assertThat;
 class LexicographicallyModifiedSorterTest {
 
     @Test
+    void when_sort_should_change_input_list_to_lowercase() {
+        LexicographicallyModifiedSorter lexicographicallyModifiedSorter = new LexicographicallyModifiedSorter();
+
+        List<String> outputList = lexicographicallyModifiedSorter.sort(asList(
+                "AbC",
+                "dEf",
+                "gHi"
+        ));
+
+        assertThat(outputList).isEqualTo(asList(
+                "abc",
+                "def",
+                "ghi"
+        ));
+    }
+
+    @Test
     void when_sort_should_sort_alphabetically() {
         LexicographicallyModifiedSorter lexicographicallyModifiedSorter = new LexicographicallyModifiedSorter();
 
